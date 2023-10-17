@@ -46,8 +46,9 @@ const Login = () => {
           "Content-type": "application/json",
         },
       };
+
       const { data } = await axios.post(
-        `${process.env.BACKEND_URL}/api/user/login`,
+        `${process.env.REACT_APP_WEBSITE_NAME}/api/user/login`,
         {
           email,
           password,
@@ -68,7 +69,7 @@ const Login = () => {
       setLoading(false);
       navigate("/chats");
     } catch (error) {
-      console.log(error);
+      console.log("error: ", error);
       toast({
         title: "Error Occured!",
         description: error.response.data.message,

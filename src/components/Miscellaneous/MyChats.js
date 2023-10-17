@@ -24,7 +24,7 @@ function MyChats({ fetchAgain }) {
       };
 
       const { data } = await axios.get(
-        `${process.env.BACKEND_URL}/api/chat`,
+        `${process.env.REACT_APP_WEBSITE_NAME}/api/chat`,
         config
       );
 

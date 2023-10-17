@@ -18,7 +18,7 @@ import axios from "axios";
 import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
 
-const ENDPOINT = `${process.env.BACKEND_URL}`;
+const ENDPOINT = `${process.env.REACT_APP_WEBSITE_NAME}`;
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -45,7 +45,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `${process.env.BACKEND_URL}/api/message/${selectedChat._id}`,
+        `${process.env.REACT_APP_WEBSITE_NAME}/api/message/${selectedChat._id}`,
         config
       );
 
@@ -78,7 +78,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          `${process.env.BACKEND_URL}/api/message`,
+          `${process.env.REACT_APP_WEBSITE_NAME}/api/message`,
           {
             content: newMessage,
             chatId: selectedChat._id,

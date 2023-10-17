@@ -75,7 +75,7 @@ function SideDrawer() {
         },
       };
       const { data } = await axios.get(
-        `${process.env.BACKEND_URL}/api/user?search=${search}`,
+        `${process.env.REACT_APP_WEBSITE_NAME}/api/user?search=${search}`,
         config
       );
       setLoading(false);

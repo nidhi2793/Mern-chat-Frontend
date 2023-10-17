@@ -63,7 +63,7 @@ const GroupChatModal = ({ children }) => {
       };
       console.log("hey");
       const { data } = await axios.get(
-        `${process.env.BACKEND_URL}/api/user?search=${search}`,
+        `${process.env.REACT_APP_WEBSITE_NAME}/api/user?search=${search}`,
         config
       );
       console.log("data", data);
@@ -105,7 +105,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.post(
-        `${process.env.BACKEND_URL}/api/chat/group`,
+        `${process.env.REACT_APP_WEBSITE_NAME}/api/chat/group`,
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),
