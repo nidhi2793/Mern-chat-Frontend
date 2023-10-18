@@ -89,61 +89,73 @@ function MyChats({ fetchAgain }) {
         overflowY="hidden"
       >
         {chats ? (
-          <Stack overflowY={"scroll"}>
-            {chats.map((chat) => (
-              <Box
-                onClick={() => setSelectedChat(chat)}
-                cursor="pointer"
-                bg={selectedChat === chat ? "#38B2AC" : "#E8E8E8"}
-                color={selectedChat === chat ? "white" : "black"}
-                px={2}
-                py={1}
-                borderRadius="lg"
-                key={chat._id}
-              >
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  {!chat.isGroupChat && (
-                    <Avatar
-                      mt={"2px"}
-                      mr={1}
-                      size={"sm"}
-                      cursor={"default"}
-                      name={getSender(loggedUser, chat.users)}
-                      src={getSenderPic(loggedUser, chat.users)}
-                    />
-                  )}
-                  {chat.isGroupChat && (
-                    <Avatar
-                      mt={"2px"}
-                      mr={1}
-                      size={"sm"}
-                      cursor={"default"}
-                      name={chat.chatName}
-                    />
-                  )}
-                  <Text>
-                    {!chat.isGroupChat
-                      ? getSender(loggedUser, chat.users)
-                      : chat.chatName}
-                  </Text>
-                </div>
+          <>
+            {chats.length > 0 ? (
+              <Stack overflowY={"scroll"}>
+                {chats.map((chat) => (
+                  <Box
+                    onClick={() => setSelectedChat(chat)}
+                    cursor="pointer"
+                    bg={selectedChat === chat ? "#38B2AC" : "#E8E8E8"}
+                    color={selectedChat === chat ? "white" : "black"}
+                    px={2}
+                    py={1}
+                    borderRadius="lg"
+                    key={chat._id}
+                  >
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      {!chat.isGroupChat && (
+                        <Avatar
+                          mt={"2px"}
+                          mr={1}
+                          size={"sm"}
+                          cursor={"default"}
+                          name={getSender(loggedUser, chat.users)}
+                          src={getSenderPic(loggedUser, chat.users)}
+                        />
+                      )}
+                      {chat.isGroupChat && (
+                        <Avatar
+                          mt={"2px"}
+                          mr={1}
+                          size={"sm"}
+                          cursor={"default"}
+                          name={chat.chatName}
+                        />
+                      )}
+                      <Text>
+                        {!chat.isGroupChat
+                          ? getSender(loggedUser, chat.users)
+                          : chat.chatName}
+                      </Text>
+                    </div>
 
-                {chat.latestMessage && (
-                  <Text fontSize="xs">
-                    <b>
-                      {chat.latestMessage.sender.name === loggedUser.name
-                        ? "You"
-                        : chat.latestMessage.sender.name}{" "}
-                      :{" "}
-                    </b>
-                    {chat.latestMessage.content.length > 50
-                      ? chat.latestMessage.content.substring(0, 51) + "..."
-                      : chat.latestMessage.content}
-                  </Text>
-                )}
-              </Box>
-            ))}
-          </Stack>
+                    {chat.latestMessage && (
+                      <Text fontSize="xs">
+                        <b>
+                          {chat.latestMessage.sender.name === loggedUser.name
+                            ? "You"
+                            : chat.latestMessage.sender.name}{" "}
+                          :{" "}
+                        </b>
+                        {chat.latestMessage.content.length > 50
+                          ? chat.latestMessage.content.substring(0, 51) + "..."
+                          : chat.latestMessage.content}
+                      </Text>
+                    )}
+                  </Box>
+                ))}
+              </Stack>
+            ) : (
+              <Text
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+              >
+                Search the user you want to chat with..{" "}
+              </Text>
+            )}
+          </>
         ) : (
           <ChatLoading />
         )}

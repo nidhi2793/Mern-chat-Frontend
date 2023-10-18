@@ -102,7 +102,7 @@ function SideDrawer() {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/chat",
+        `${process.env.REACT_APP_WEBSITE_NAME}/api/chat`,
         { userId },
         config
       );
