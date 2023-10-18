@@ -97,7 +97,6 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         config
       );
 
-      console.log(data._id);
       // setSelectedChat("");
       setSelectedChat(data);
       setFetchAgain(!fetchAgain);
@@ -133,7 +132,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         `${process.env.REACT_APP_WEBSITE_NAME}/api/user?search=${search}`,
         config
       );
-      console.log(data);
+
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
