@@ -26,12 +26,18 @@ const HomePage = () => {
   }, [navigate]);
 
   return (
-    <Container maxW="xl" centerContent>
+    <Container
+      maxW="xl"
+      centerContent
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+    >
       <Box
-        bg="#E9D8FD"
+        bg="white"
         display="flex"
         justifyContent="center"
-        p={1}
+        p={0.5}
         w="100%"
         m="5px 0 5px 0"
         borderRadius="lg"
@@ -39,12 +45,12 @@ const HomePage = () => {
         alignItems={"center"}
       >
         <img src={logo} style={{ height: "40px", margin: "2px" }} />
-        <Text fontSize="4xl" fontFamily="Work sans">
+        <Text fontSize="2xl" fontFamily="Work sans" fontWeight={"bold"}>
           HeyApp
         </Text>
       </Box>
       <Box
-        bg="#E9D8FD"
+        bg="white"
         w={"100%"}
         p={1}
         borderRadius={"lg"}
