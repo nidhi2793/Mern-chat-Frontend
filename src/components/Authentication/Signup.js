@@ -45,7 +45,6 @@ const Signup = () => {
     }
 
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
-      console.log(pics);
       const data = new FormData();
       data.append("file", pics);
       data.append("upload_preset", "chatapp");
@@ -56,7 +55,6 @@ const Signup = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("data", data);
           setPic(data.url.toString());
           setLoading(false);
         })
@@ -126,14 +124,14 @@ const Signup = () => {
         isClosable: true,
         position: "bottom",
       });
-      // localStorage.setItem("userInfo", JSON.stringify(data));
+      localStorage.setItem("userInfo", JSON.stringify(data));
 
       setLoading(false);
       setName("");
       setEmail("");
       setPassword("");
       setPic("");
-      //   navigate("/chats");
+      navigate("/chats");
     } catch (error) {
       console.log(error);
       toast({

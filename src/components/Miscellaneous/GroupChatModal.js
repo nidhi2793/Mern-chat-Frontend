@@ -54,19 +54,18 @@ const GroupChatModal = ({ children }) => {
 
     try {
       setLoading(true);
-      console.log(user.token);
 
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      console.log("hey");
+
       const { data } = await axios.get(
         `${process.env.REACT_APP_WEBSITE_NAME}/api/user?search=${search}`,
         config
       );
-      console.log("data", data);
+
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
